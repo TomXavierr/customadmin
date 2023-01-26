@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+register
+{% endblock title %}
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" href="#">Register</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          
+          <button class="btn btn-success mx-4" type="submit"><a class="nav-link active text-light" aria-current="page" href="/login">User Login</a> </button>
+     
+          <button class="btn btn-success " type="submit"><a class="nav-link active text-light" href="/admin">Admin Login</a> </button>
+       
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="container justify-content-center mt-5" style="width: fit-content" >
+    <form method="post" actions=" register">
+        {% csrf_token %}
+        <div class="mb-1">
+            <label for="exampleFormControlInput1" class="form-label">First Name</label>
+            <input type="text" name="first_name" class="form-control  form-control-sm" id="exampleFormControlInput1 " required='required'>
+        </div>
+        <div class="mb-1">
+            <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+            <input type="text" name="last_name" class="form-control form-control-sm" id="exampleFormControlInput1" required='required'>
+        </div>
+        <div class="mb-1">
+            <label for="exampleFormControlInput1" class="form-label">User Name</label>
+            <input type="text" name="username" class="form-control form-control-sm" id="exampleFormControlInput1" required='required'>
+        </div>
+        <div class="mb-1">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control form-control-sm" id="exampleFormControlInput1"  required='required'>
+        </div>
+        <div class="mb-1">
+            <label for="exampleFormControlInput1" class="form-label">Enter your password</label>
+            <input type="password" name="password1" class="form-control form-control-sm" id="exampleFormControlInput1" required='required'>
+        </div>
+        <div class="mb-1">
+            <label for="exampleFormControlInput1" class="form-label">Confirm your password</label>
+            <input type="password" name="password2" class="form-control form-control-sm" id="exampleFormControlInput1" required='required'>
+        </div>
+        <div class="mt-1">
+            <input type="submit" name="Create User"> 
+        </div>
+    </form>
+</div>
+<br>
+
+
+<div>
+    {% for message in messages %}
+    <h4> {{message}}</h4>
+    
+    {% endfor %}
+</div>
+
+
+
+{% endblock content %}

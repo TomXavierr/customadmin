@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Admin login
+{% endblock title %}
+
+
+{% block content %}
+<h1 class="text-center">Admin Login </h1>
+<br>
+<div class="container justify-content-center " style="width: fit-content" >
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Enter your Username</label>
+            <input type="text" name="username" class="form-control" id="exampleFormControlInput1" required='required'>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Enter your password</label>
+            <input type="password" name="password" class="form-control" id="exampleFormControlInput1" required='required'>
+        </div>
+        <input type="submit">
+    </form>
+</div>  
+<br>
+<div class="text-center">
+    <p>NOT AN ADMIN? <a href="/login" >Login here.</a></p>
+</div>
+
+<div class="text-center">
+    {% for message in messages %}
+    <h4> {{message}}</h4>
+    
+    {% endfor %}
+</div>
+
+
+{% endblock content %}

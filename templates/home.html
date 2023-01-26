@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock title %}
+
+
+{% block content %}
+
+
+<div class="home container-fluid">
+    <h1 class='text-center'>Home Page</h1>
+
+<br>
+
+<br>
+<br>
+
+
+
+<div class="container">
+    <div class="row">
+        {% for dest in dests %}
+        <div class="col">
+            <div class="card border-1 border-dark" style="width: 18rem;">
+                {% comment %} <img src="/Images/{{dest.img}} " class="card-img-top" alt="..."> {% endcomment %}
+                <div class="card-body">
+                    <h5 class="card-title">{{dest.name}} </h5>
+                    <p class="card-text">{{dest.desc}} </p>
+                    <a href="#" class="btn btn-primary">${{dest.price}} </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+<div class='text-center'>
+    <a  href="logout">Logout</a>
+</div>
+</div>
+
+{% endblock content %}
